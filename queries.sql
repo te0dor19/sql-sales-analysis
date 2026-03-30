@@ -8,3 +8,6 @@ SELECT COUNT(*) AS number_of_orders FROM invoice;
 SELECT MIN(total) AS min_sum_order FROM invoice;
 -- 5. Выявляем максимальную сумму заказа
 SELECT MAX(total) AS max_sum_order FROM invoice;
+-- 6. Считааем выручку по дням (с начала ведения записи)
+SELECT SUM(total) AS day_revenue, invoicedate::date AS invoice_date FROM invoice
+GROUP BY invoice_date ORDER BY invoice_date ASC;
