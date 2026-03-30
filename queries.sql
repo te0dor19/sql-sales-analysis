@@ -16,3 +16,6 @@ GROUP BY invoice_date ORDER BY invoice_date ASC;
 -- 7. Считаем количество заказов по дням 
 SELECT COUNT(invoiceid) AS orders_number_per_date, invoicedate::date AS invoice_date FROM invoice
 GROUP BY invoice_date ORDER BY invoice_date ASC;
+-- 8. Считаем cредний чек по дням
+SELECT AVG(total) AS average_bill_by_day, invoicedate::date AS invoice_date FROM invoice
+GROUP BY invoice_date ORDER BY invoice_date ASC;
