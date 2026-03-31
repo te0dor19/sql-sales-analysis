@@ -20,7 +20,7 @@ GROUP BY invoice_date ORDER BY invoice_date ASC;
 SELECT AVG(total) AS average_bill_by_day, invoicedate::date AS invoice_date FROM invoice
 GROUP BY invoice_date ORDER BY invoice_date ASC;
 -- 9. Количество активных клиентов по странам 
-SELECT COUNT(customerid) AS active_number_of_customers, billingcountry AS country
+SELECT COUNT(DISTINCT customerid) AS active_number_of_customers, billingcountry AS country
 FROM invoice GROUP BY country ORDER BY country ASC;
 --10. Количество заказов по странам
 SELECT COUNT(invoiceid) AS number_of_orders, billingcountry AS country FROM
